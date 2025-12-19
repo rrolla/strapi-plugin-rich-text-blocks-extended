@@ -4,7 +4,6 @@ import {
   Flex,
   SingleSelect,
   SingleSelectOption,
-  Tooltip,
   Combobox,
   ComboboxOption,
   NumberInput,
@@ -171,13 +170,12 @@ const DynamicSettings = ({
           <Flex direction="column" gap={2} flex="1">
             {/* Width Setting */}
             <SettingGroup width="100%">
-              <Tooltip label="Width">
                 <SettingIcon>
                   <Box fontWeight="bold" fontSize="18px">
                     W
                   </Box>
                 </SettingIcon>
-              </Tooltip>
+              
               <Box flex="1">
                 <NumberInput
                   placeholder="Width"
@@ -201,13 +199,13 @@ const DynamicSettings = ({
 
             {/* Height Setting */}
             <SettingGroup width="100%">
-              <Tooltip label="Height">
+              
                 <SettingIcon>
                   <Box fontWeight="bold" fontSize="18px">
                     H
                   </Box>
                 </SettingIcon>
-              </Tooltip>
+              
               <Box flex="1">
                 <NumberInput
                   placeholder="Height"
@@ -232,9 +230,6 @@ const DynamicSettings = ({
 
           {/* Aspect Ratio Lock Toggle in the same row */}
           <Flex alignItems="center">
-            <Tooltip
-              label={imageAspectRatioLocked ? 'Aspect ratio locked' : 'Aspect ratio unlocked'}
-            >
               <IconButton
                 onClick={() =>
                   onSettingChange('imageAspectRatioLocked', !imageAspectRatioLocked, breakpoint)
@@ -245,7 +240,7 @@ const DynamicSettings = ({
               >
                 <Link />
               </IconButton>
-            </Tooltip>
+            
           </Flex>
         </Flex>
       </ViewportSettings>
@@ -257,11 +252,11 @@ const DynamicSettings = ({
       <ViewportSettings $isActive={isActive}>
         {/* Separator Size Setting */}
         <SettingGroup width="100%">
-          <Tooltip label="Separator Size">
+          
             <SettingIcon>
               <SeparatorSizeIcon />
             </SettingIcon>
-          </Tooltip>
+          
           <Box flex="1">
             <NumberInput
               placeholder="Size"
@@ -280,11 +275,11 @@ const DynamicSettings = ({
 
         {/* Separator Length Setting */}
         <SettingGroup width="100%">
-          <Tooltip label="Separator Length">
+          
             <SettingIcon>
               <SeparatorLengthIcon />
             </SettingIcon>
-          </Tooltip>
+          
           <Box flex="1">
             <NumberInput
               placeholder="Length"
@@ -305,11 +300,11 @@ const DynamicSettings = ({
 
         {/* Separator Orientation Setting */}
         <SettingGroup width="100%">
-          <Tooltip label="Separator Orientation">
+          
             <SettingIcon>
               <SeparatorOrientationIcon />
             </SettingIcon>
-          </Tooltip>
+          
           <SelectWrapper flex="1">
             <SingleSelect
               placeholder="Orientation"
@@ -334,11 +329,11 @@ const DynamicSettings = ({
   return (
     <ViewportSettings $isActive={isActive}>
       <SettingGroup width="100%">
-        <Tooltip label="Font Size">
+        
           <SettingIcon>
             <FontSizeIcon />
           </SettingIcon>
-        </Tooltip>
+        
         <SelectWrapper flex="1">
           <Combobox
             autoComplete="off"
@@ -370,11 +365,11 @@ const DynamicSettings = ({
 
       {/* Line Height Setting */}
       <SettingGroup width="100%">
-        <Tooltip label="Line Height">
+        
           <SettingIcon>
             <FontLeadingIcon />
           </SettingIcon>
-        </Tooltip>
+        
         <SelectWrapper flex="1">
           <Combobox
             autoComplete="off"
@@ -406,11 +401,11 @@ const DynamicSettings = ({
 
       {/* Letter Spacing Setting */}
       <SettingGroup width="100%">
-        <Tooltip label="Letter Spacing">
+        
           <SettingIcon>
             <FontTrackingIcon />
           </SettingIcon>
-        </Tooltip>
+        
         <SelectWrapper flex="1">
           <Combobox
             autoComplete="off"
@@ -442,11 +437,11 @@ const DynamicSettings = ({
 
       {/* Text Alignment Setting */}
       <SettingGroup width="100%">
-        <Tooltip label="Text Alignment">
+        
           <SettingIcon>
             <FontAlignmentIcon />
           </SettingIcon>
-        </Tooltip>
+        
         <SelectWrapper flex="1">
           <SingleSelect
             placeholder="Text Alignment"

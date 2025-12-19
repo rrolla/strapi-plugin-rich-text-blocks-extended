@@ -3,7 +3,6 @@ import { useElementOnScreen } from '@strapi/admin/strapi-admin';
 import * as Toolbar from '@radix-ui/react-toolbar';
 import {
   Flex,
-  Tooltip,
   SingleSelect,
   SingleSelectOption,
   Box,
@@ -121,7 +120,7 @@ const ToolbarButton = ({
   const enabledColor = isActive ? 'primary600' : 'neutral600';
 
   return (
-    <Tooltip label={labelMessage}>
+    <>
       <Toolbar.ToggleItem
         value={name}
         data-state={isActive ? 'on' : 'off'}
@@ -147,7 +146,7 @@ const ToolbarButton = ({
           <Icon fill={disabled ? 'neutral300' : enabledColor} />
         </FlexButton>
       </Toolbar.ToggleItem>
-    </Tooltip>
+    </>
   );
 };
 

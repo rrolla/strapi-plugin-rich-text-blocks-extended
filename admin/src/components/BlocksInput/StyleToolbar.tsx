@@ -7,7 +7,6 @@ import {
   SingleSelectOption,
   Popover,
   IconButton,
-  Tooltip,
 } from '@strapi/design-system';
 import { Editor, Element } from 'slate';
 import { styled } from 'styled-components';
@@ -726,11 +725,11 @@ const StyleToolbar = () => {
               <Flex direction="column" gap={2} alignItems="flex-start">
                 {/* Viewport Setting */}
                 <SettingGroup width="100%">
-                  <Tooltip label="Viewport">
+                  
                     <SettingIcon>
                       <ViewportIcon />
                     </SettingIcon>
-                  </Tooltip>
+                  
                   <SelectWrapper flex="1">
                     <SingleSelect
                       placeholder="Viewport"

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { BlocksEditor } from './BlocksInput/BlocksEditor';
-import { Field, Flex } from '@strapi/design-system';
+import { Field, Flex, DesignSystemProvider } from '@strapi/design-system';
+import { useTheme } from 'styled-components';
 
 
 interface InputProps {
@@ -39,6 +40,8 @@ interface InputProps {
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  const currentTheme = useTheme();
+
   // Get initial editor value
   const getInitialValue = () => {
     try {
@@ -69,35 +72,37 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   };
 
   return (
-    <Field.Root
-      id={props.name}
-      name={props.name}
-      required={props.required}
-      error={props.error}
-      hint={props?.hint}
-    >
-      <Flex direction="column" alignItems="stretch" gap={1}>
-        <Field.Label>{props.label}</Field.Label>
-        <BlocksEditor
-          ref={ref as any}
-          name={props.name}
-          error={props.error}
-          value={editorValue}
-          ariaLabelId={props.name}
-          disabled={props.disabled}
-          pluginOptions={props.attribute.options}
-          onChange={(eventOrPath, value) => {
-            if (typeof eventOrPath === 'string') {
-              handleChange(eventOrPath, value);
-            } else {
-              handleChange(props.name, eventOrPath.target.value);
-            }
-          }}
-        />
-        <Field.Hint />
-        <Field.Error />
-      </Flex>
-    </Field.Root>
+    <DesignSystemProvider locale="en" theme={currentTheme}>
+      <Field.Root
+        id={props.name}
+        name={props.name}
+        required={props.required}
+        error={props.error}
+        hint={props?.hint}
+      >
+        <Flex direction="column" alignItems="stretch" gap={1}>
+          <Field.Label>{props.label}</Field.Label>
+          <BlocksEditor
+            ref={ref as any}
+            name={props.name}
+            error={props.error}
+            value={editorValue}
+            ariaLabelId={props.name}
+            disabled={props.disabled}
+            pluginOptions={props.attribute.options}
+            onChange={(eventOrPath, value) => {
+              if (typeof eventOrPath === 'string') {
+                handleChange(eventOrPath, value);
+              } else {
+                handleChange(props.name, eventOrPath.target.value);
+              }
+            }}
+          />
+          <Field.Hint />
+          <Field.Error />
+        </Flex>
+      </Field.Root>
+    </DesignSystemProvider>
   );
 });
 
